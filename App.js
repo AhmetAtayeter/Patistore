@@ -1,15 +1,24 @@
 import React from "react";
-import { View,Text,SafeAreaView,FlatList } from "react-native";
-import { Products } from './src/products.json'
+import { View,Text,SafeAreaView,FlatList,StyleSheet } from "react-native";
+import products from './src/products.json'
+import Card  from './src/components/Card'
 const App = () => {
-
+  console.log(products)
   return(
-    <SafeAreaView>
-      <FlatList data={Products}>
-          <Text>{Products.id}</Text>
-      </FlatList>
+    <SafeAreaView style={styles.container}>
+      <FlatList 
+        data={products}
+        renderItem={({item}) => <Card products={item} />}
+        />
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  }
+})
 
 export default App
