@@ -7,9 +7,16 @@ const Card = ({products}) => {
         
         <View style={styles.container}>
             <Image style={styles.image} source={{uri: products.imgURL}}></Image>
-            <Text>
+            <Text style={styles.title}>
                 {products.title}
             </Text>
+            <Text style={styles.price}>
+                {products.price}
+            </Text>
+            {products.inStock ? <View/> : <Text style={styles.inStock}>STOKTA YOK</Text>}
+            {/* <Text>
+                {products.inStock ? '' : 'STOKTA YOK'}
+            </Text> */}
         </View>
     )
 }
